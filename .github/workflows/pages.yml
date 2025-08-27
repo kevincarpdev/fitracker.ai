@@ -21,12 +21,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
-      # For Next.js static export:
-      #   1) set `output: 'export'` in next.config.js
-      #   2) ensure `next build` then `next export` outputs to `out`
-      - run: npm ci
-      - run: npm run build
-      # If your static files end up in `dist` or `build`, change this:
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./out

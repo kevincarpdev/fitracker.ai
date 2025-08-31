@@ -8,6 +8,14 @@ module.exports = {
     "./hooks/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    {
+      pattern: /^(bg|text|border)-primary-(50|100|200|300|400|500|600|700|800|900|950)$/,
+    },
+    {
+      pattern: /^(bg|text|border)-secondary-(50|100|200|300|400|500|600|700|800|900|950)$/,
+    }
+  ],
   theme: {
     extend: {
       colors: {
@@ -38,7 +46,18 @@ module.exports = {
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))"
+          foreground: "hsl(var(--secondary-foreground))",
+          50: "hsl(var(--secondary-50))",
+          100: "hsl(var(--secondary-100))",
+          200: "hsl(var(--secondary-200))",
+          300: "hsl(var(--secondary-300))",
+          400: "hsl(var(--secondary-400))",
+          500: "hsl(var(--secondary-500))",
+          600: "hsl(var(--secondary-600))",
+          700: "hsl(var(--secondary-700))",
+          800: "hsl(var(--secondary-800))",
+          900: "hsl(var(--secondary-900))",
+          950: "hsl(var(--secondary-950))"
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
@@ -54,4 +73,18 @@ module.exports = {
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
-        rin
+        ring: "hsl(var(--ring))"
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      fontFamily: {
+        heading: ["var(--font-space-grotesk)", "ui-sans-serif", "system-ui", "sans-serif"],
+        body: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
+      },
+    },
+  },
+  plugins: [],
+}

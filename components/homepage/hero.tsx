@@ -53,7 +53,7 @@ const Hero = memo(({
         style={{ opacity: heroContentOpacity }}
       >
         <div className="mb-8 flex items-center justify-center">
-          <Logo size="lg" showText />
+          <Logo size="xl" showText={false} />
         </div>
         <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 leading-tight">
           Your Complete AI Health Companion
@@ -62,12 +62,10 @@ const Hero = memo(({
           The ultimate health companion combining fitness tracking, nutrition guidance, community support, and AI coaching - all in one beautifully simple app
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-          <Button className="bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary)/0.9)] rounded-full px-8 py-4 text-lg font-heading font-semibold">
-            Start Your Journey Free
+          <Button className="h-auto bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary)/0.9)] rounded-2xl px-8 py-4 text-lg font-heading font-semibold">
+            Start Your Journey  →
           </Button>
-          <Button variant="outline" className="border-[hsl(var(--primary))] text-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))] hover:text-[hsl(var(--primary-foreground))] rounded-full px-8 py-4 text-lg font-heading font-semibold">
-            Watch Demo
-          </Button>
+
         </div>
         <p className="text-lg max-w-4xl mx-auto leading-relaxed text-muted-foreground font-body">
           Fitracker revolutionizes your health journey with three ways to track: snap photos, speak to our AI, or type manually. Get personalized daily recommendations, log workouts effortlessly, and connect with a supportive community while our AI coach guides you every step of the way - whether you're a complete beginner or fitness enthusiast.

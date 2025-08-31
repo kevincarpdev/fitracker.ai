@@ -21,44 +21,62 @@ const Navigation = memo(({ navOpacity }: NavigationProps) => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-40">
+      <nav className="fixed top-8 left-0 right-0 z-40">
         <div
-          className="backdrop-blur-xl transition-all duration-300 border-b border-border/50"
-          style={{ backgroundColor: `hsl(var(--background) / ${Math.max(navOpacity, 0.9)})` }}
+          className="
+              max-w-5xl mx-auto px-6 py-5
+              flex items-center justify-between
+              relative
+              rounded-3xl
+              border
+              border-[#06140e1a]
+              shadow-[0_24px_40px_-26px_#06140e12]
+              backdrop-blur-[15px]
+              bg-[#f7f4eebf]
+              backdrop-blur-xl transition-all duration-300
+            "
+          style={{
+            // fallback for browsers that don't support tailwind's arbitrary values
+            backdropFilter: "blur(15px)",
+            backgroundColor: "#f7f4eebf",
+            borderColor: "#06140e1a",
+            borderRadius: "1.5rem",
+            boxShadow: "0 24px 40px -26px #06140e12",
+            display: "flex",
+            position: "relative",
+          }}
         >
-          <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Logo size="md" showText />
-            </div>
+          <div className="flex items-center gap-2">
+            <Logo size="md" showText />
+          </div>
 
-            <div className="hidden md:flex items-center gap-10">
-              {navLinks.map(({ href, label }) => (
-                <a
-                  key={href}
-                  href={href}
-                  className="font-heading text-sm font-medium hover:text-primary relative group"
-                >
-                  {label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[hsl(var(--primary))] transition-all duration-200 group-hover:w-full" />
-                </a>
-              ))}
-            </div>
+          <div className="hidden md:flex items-center gap-10">
+            {navLinks.map(({ href, label }) => (
+              <a
+                key={href}
+                href={href}
+                className="font-heading text-lg font-medium hover:text-primary relative group"
+              >
+                {label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[hsl(var(--primary))] transition-all duration-200 group-hover:w-full" />
+              </a>
+            ))}
+          </div>
 
-            <div className="flex items-center gap-4">
-              <Button
-                className="bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary)/0.9)] rounded-full px-6 py-2.5 font-heading font-semibold text-sm shadow-lg hover:shadow-xl transition-all"
-                aria-label="Start your journey free"
-              >
-                Start Your Journey Free →
-              </Button>
-              <button
-                onClick={() => setIsMenuOpen(true)}
-                className="p-2.5 hover:bg-muted rounded-xl transition-all hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[hsl(var(--ring))]"
-                aria-label="Open menu"
-              >
-                <Menu className="w-5 h-5" />
-              </button>
-            </div>
+          <div className="flex items-center gap-4">
+            <Button
+              className="cursor-pointer h-auto bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary)/0.9)] rounded-xl px-6 font-heading font-bold text-lg shadow-lg hover:shadow-xl transition-all"
+              aria-label="Start your journey free"
+            >
+              Start Free →
+            </Button>
+            <button
+              onClick={() => setIsMenuOpen(true)}
+              className="cursor-pointer p-2.5 hover:bg-muted rounded-xl transition-all hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[hsl(var(--ring))]"
+              aria-label="Open menu"
+            >
+              <Menu className="w-7 h-7" />
+            </button>
           </div>
         </div>
       </nav>
@@ -98,9 +116,9 @@ const Navigation = memo(({ navOpacity }: NavigationProps) => {
               ))}
 
               <div className="pt-4">
-                <Button className="w-full bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary)/0.9)] rounded-full py-3 font-heading font-semibold">
+                <Button className="h-auto w-full bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary)/0.9)] rounded-2xl py-3 font-heading font-semibold">
                   Start Your Journey Free →
-                </Button>
+                </Button> 
               </div>
 
               <div className="pt-8 border-t border-border space-y-4">

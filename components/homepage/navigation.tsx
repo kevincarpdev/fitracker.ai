@@ -4,6 +4,7 @@ import { useState, memo, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Logo } from "@/components/logo"
+import { useScrollNavigation } from "@/hooks/use-scroll-navigation"
 
 interface NavigationProps {
   navOpacity: number
@@ -12,6 +13,7 @@ interface NavigationProps {
 const Navigation = memo(({ navOpacity }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
+  const { isVisible, isScrolling } = useScrollNavigation({ threshold: 20, debounceMs: 150 })
 
   const navLinks = [
     { href: "#about", label: "About" },
@@ -58,9 +60,15 @@ const Navigation = memo(({ navOpacity }: NavigationProps) => {
 
   return (
     <>
-      <nav className="fixed top-8 left-0 right-0 z-40">
+      <nav 
+        className={`fixed top-8 left-4 right-4 z-40 transition-all duration-500 ease-out ${
+          isVisible 
+            ? 'translate-y-0 opacity-100' 
+            : '-translate-y-full opacity-0'
+        }`}
+      >
         <div
-          className="
+          className={`
               max-w-5xl mx-auto pl-6 py-3 pr-2
               flex items-center justify-between
               relative
@@ -71,7 +79,8 @@ const Navigation = memo(({ navOpacity }: NavigationProps) => {
               backdrop-blur-[15px]
               bg-[#f7f4eebf]
               backdrop-blur-xl transition-all duration-300
-            "
+              ${isScrolling ? 'scale-95' : 'scale-100'}
+            `}
           style={{
             // fallback for browsers that don't support tailwind's arbitrary values
             backdropFilter: "blur(15px)",
@@ -87,7 +96,7 @@ const Navigation = memo(({ navOpacity }: NavigationProps) => {
             <Logo size="md" showText />
           </div>
 
-          <div className="hidden md:flex items-center gap-10 text-right">
+          <div className="hidden lg:flex items-center gap-10 text-right">
             {navLinks.map(({ href, label }) => (
               <a
                 key={href}

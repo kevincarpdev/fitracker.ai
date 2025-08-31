@@ -29,7 +29,7 @@ const Footer = memo(() => {
   ]
 
   return (
-    <footer className="py-20 relative">
+    <footer className="py-20 relative bg-[hsl(var(--primary-950))]">
       
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 lg:gap-16">

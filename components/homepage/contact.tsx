@@ -18,6 +18,11 @@ const Contact = memo(() => {
 
             <div className="space-y-4 text-lg">
               <p>hello@fitracker.ai</p>
+              <div className="mt-6">
+                <p className="font-semibold">Fitracker, Inc</p>
+                <p>611 S Dupont Highway</p>
+                <p>Dover 19901 DE</p>
+              </div>
             </div>
           </div>
         </div>

@@ -29,8 +29,7 @@ const Footer = memo(() => {
   ]
 
   return (
-    <footer className="bg-gradient-to-b from-primary-950 to-black text-primary-foreground py-20 relative">
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+    <footer className="py-20 relative">
       
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 lg:gap-16">
@@ -90,7 +89,7 @@ const Footer = memo(() => {
         </div>
         
         {/* Footer bottom - darker */}
-        <div className="border-t border-white/20 mt-16 pt-8 bg-black/60 -mx-6 px-6 -mb-20 pb-20 rounded-t-3xl backdrop-blur-sm">
+        <div className="">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto">
             <p className="text-sm opacity-70 font-body">
               © 2025 Fitracker. All rights reserved.

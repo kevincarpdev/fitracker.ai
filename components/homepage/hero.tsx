@@ -4,16 +4,30 @@ import { memo } from "react"
 import { Button } from "@/components/ui/button"
 import { Logo } from "@/components/logo"
 import Image from "next/image"
+import { motion, useScroll, useTransform } from "framer-motion"
 
 interface HeroProps {
   heroScale: number
   heroOpacity: number
   heroBlur: number
+  appScreenshotY: number
+  appScreenshotScale: number
+  appScreenshotOpacity: number
+  heroContentOpacity: number
 }
 
-const Hero = memo(({ heroScale, heroOpacity, heroBlur }: HeroProps) => {
+const Hero = memo(({ 
+  heroScale, 
+  heroOpacity, 
+  heroBlur, 
+  appScreenshotY, 
+  appScreenshotScale, 
+  appScreenshotOpacity, 
+  heroContentOpacity 
+}: HeroProps) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden hero-gradient">
+      {/* Background with blur effect */}
       <div
         className="absolute inset-0 transition-all will-change-transform"
         style={{
@@ -24,16 +38,20 @@ const Hero = memo(({ heroScale, heroOpacity, heroBlur }: HeroProps) => {
         aria-hidden="true"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary)/0.05)] via-[hsl(var(--primary-200)/0.1)] to-[hsl(var(--primary-300)/0.15)]" />
-        <Image
+        {/* <Image
           src="/motivational-coach.png"
           alt=""
           fill
           className="object-cover object-center"
           priority
-        />
+        /> */}
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 text-center z-10">
+      {/* Hero content that fades out */}
+      <div 
+        className="relative max-w-7xl mx-auto px-6 text-center z-10 transition-opacity duration-300"
+        style={{ opacity: heroContentOpacity }}
+      >
         <div className="mb-8 flex items-center justify-center">
           <Logo size="lg" showText />
         </div>

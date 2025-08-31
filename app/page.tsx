@@ -17,12 +17,29 @@ import Newsletter from "@/components/homepage/newsletter"
 import Footer from "@/components/homepage/footer"
 
 const FitrackerApp = memo(() => {
-  const { heroScale, heroOpacity, heroBlur, navOpacity } = useScrollEffects()
+  const { 
+    heroScale, 
+    heroOpacity, 
+    heroBlur, 
+    navOpacity,
+    appScreenshotY,
+    appScreenshotScale,
+    appScreenshotOpacity,
+    heroContentOpacity
+  } = useScrollEffects()
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navigation navOpacity={navOpacity} />
-      <Hero heroScale={heroScale} heroOpacity={heroOpacity} heroBlur={heroBlur} />
+      <Hero 
+        heroScale={heroScale} 
+        heroOpacity={heroOpacity} 
+        heroBlur={heroBlur}
+        appScreenshotY={appScreenshotY}
+        appScreenshotScale={appScreenshotScale}
+        appScreenshotOpacity={appScreenshotOpacity}
+        heroContentOpacity={heroContentOpacity}
+      />
       <About />
       <HowItWorks />
       <Features />

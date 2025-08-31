@@ -1,8 +1,7 @@
 "use client"
 
 import { memo } from "react"
-import { Logo } from "@/components/logo"
-
+import Image from "next/image"
 const Footer = memo(() => {
   const footerLinks = {
     product: [
@@ -29,15 +28,15 @@ const Footer = memo(() => {
   ]
 
   return (
-    <footer className="py-20 relative bg-[hsl(var(--primary-950))]">
+    <footer className="py-20 relative bg-[hsl(var(--primary-1000))]">
       
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 lg:gap-16">
           <div className="md:col-span-1">
-            <div className="flex items-center gap-2 mb-8">
-              <Logo size="md" showText />
+            <div className="flex items-center gap-2 mb-8 text-[hsl(var(--primary-foreground))]">
+              <Image src="/logo-icon-light.png" alt="FiTracker" width={32} height={32} />
             </div>
-            <p className="text-lg opacity-90 font-body leading-relaxed max-w-sm">
+            <p className="text-lg opacity-90 font-body leading-relaxed max-w-sm text-[hsl(var(--primary-foreground))]">
               Your Complete AI Health Companion
             </p>
           </div>
@@ -49,7 +48,7 @@ const Footer = memo(() => {
                 <a
                   key={index}
                   href={link.href}
-                  className="block opacity-80 hover:opacity-100 hover:text-white transition-all font-body"
+                  className="block opacity-80 text-[hsl(var(--primary-foreground))] hover:opacity-100 hover:text-white transition-all font-body"
                 >
                   {link.label}
                 </a>
@@ -64,7 +63,7 @@ const Footer = memo(() => {
                 <a
                   key={index}
                   href={link.href}
-                  className="block opacity-80 hover:opacity-100 hover:text-white transition-all font-body"
+                  className="block opacity-80 text-[hsl(var(--primary-foreground))] hover:opacity-100 hover:text-white transition-all font-body"
                 >
                   {link.label}
                 </a>
@@ -79,7 +78,7 @@ const Footer = memo(() => {
                 <a
                   key={index}
                   href={link.href}
-                  className="block opacity-80 hover:opacity-100 hover:text-white transition-all font-body"
+                  className="block opacity-80 text-[hsl(var(--primary-foreground))] hover:opacity-100 hover:text-white transition-all font-body"
                 >
                   {link.label}
                 </a>

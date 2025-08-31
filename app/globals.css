@@ -63,6 +63,7 @@
   --primary-800: 260 80% 23%;
   --primary-900: 260 90% 18%;
   --primary-950: 260 100% 18%;
+  --primary-1000: 260 100% 8%; /* Even darker, closer to black */
 
   /* ✅ Secondary scale (added) */
   --secondary-50: 260 50% 96%;

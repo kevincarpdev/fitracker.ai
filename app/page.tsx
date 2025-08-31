@@ -10,6 +10,7 @@ import Features from "@/components/homepage/features"
 import Community from "@/components/homepage/community"
 import Testimonials from "@/components/homepage/testimonials"
 import Pricing from "@/components/homepage/pricing"
+import AppShowcase from "@/components/homepage/app-showcase"
 import CTA from "@/components/homepage/cta"
 import FAQ from "@/components/homepage/faq"
 import Contact from "@/components/homepage/contact"
@@ -19,13 +20,11 @@ import Footer from "@/components/homepage/footer"
 const FitrackerApp = memo(() => {
   const { 
     heroScale, 
-    heroOpacity, 
     heroBlur, 
     navOpacity,
     appScreenshotY,
     appScreenshotScale,
-    appScreenshotOpacity,
-    heroContentOpacity
+    appScreenshotOpacity
   } = useScrollEffects()
 
   return (
@@ -33,19 +32,18 @@ const FitrackerApp = memo(() => {
       <Navigation navOpacity={navOpacity} />
       <Hero 
         heroScale={heroScale} 
-        heroOpacity={heroOpacity} 
         heroBlur={heroBlur}
         appScreenshotY={appScreenshotY}
         appScreenshotScale={appScreenshotScale}
         appScreenshotOpacity={appScreenshotOpacity}
-        heroContentOpacity={heroContentOpacity}
       />
+      {/* <AppShowcase /> */}
       <About />
       <HowItWorks />
       <Features />
       <Community />
       <Testimonials />
-      <Pricing />
+      {/* <Pricing /> */}
       <CTA />
       <FAQ />
       <Contact />

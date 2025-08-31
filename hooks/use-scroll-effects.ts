@@ -43,7 +43,6 @@ export const useScrollEffects = () => {
 
   const y = getY()
   const heroScale = Math.min(1 + y / 300, 2.5)
-  const heroOpacity = Math.max(1 - y / 800, 0.3)
   const heroBlur = Math.min(y / 100, 10)
   const navOpacity = Math.min(y / 100, 0.95)
   
@@ -51,16 +50,13 @@ export const useScrollEffects = () => {
   const appScreenshotY = Math.max(-y * 0.5, -windowHeight * 0.8)
   const appScreenshotScale = Math.min(1 + y / 1000, 1.5)
   const appScreenshotOpacity = Math.min(y / 400, 1)
-  const heroContentOpacity = Math.max(1 - y / 300, 0)
 
   return {
     heroScale,
-    heroOpacity,
     heroBlur,
     navOpacity,
     appScreenshotY,
     appScreenshotScale,
-    appScreenshotOpacity,
-    heroContentOpacity
+    appScreenshotOpacity
   }
 }

@@ -2,18 +2,14 @@
 
 import { memo } from "react"
 import { Button } from "@/components/ui/button"
-import { Logo } from "@/components/logo"
 
 const Newsletter = memo(() => {
   return (
     <section className="py-32 bg-gradient-to-r from-[hsl(var(--primary-950))] to-[hsl(var(--primary-600))] text-primary-foreground relative overflow-hidden">
       
       <div className="relative max-w-7xl mx-auto px-6">
-        <div className="text-center bg-[hsl(var(--primary-500))] rounded-2xl py-10 px-12">
-          <div className="flex justify-center mb-8">
-            <Logo size="lg" showText={false} />
-          </div>
-          <h2 className="text-4xl md:text-6xl font-bold mb-8 text-[hsl(var(--primary-foreground))]">
+        <div className="text-center bg-[hsl(var(--primary-500))] rounded-3xl py-10 px-12">
+          <h2 className="text-5xl font-heading font-bold mb-4 text-[hsl(var(--primary-foreground))]">
             Stay up to date with
             <br />
             everything we are working on
@@ -24,7 +20,7 @@ const Newsletter = memo(() => {
           </p>
 
           <div className="max-w-sm mx-auto">
-            <div className="flex flex-col gap-4 ">
+            <div className="flex flex-col gap-3">
               <input
                 type="email"
                 placeholder="Enter your email"

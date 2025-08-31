@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter, Space_Grotesk } from 'next/font/google'
+import { Inter, Noto_Sans_Math } from 'next/font/google'
 import './globals.css'
 
-// Formula-style font (Space Grotesk is similar to Formula)
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk',
+// Formula-style font (Noto Sans Math for mathematical expressions)
+const notoSansMath = Noto_Sans_Math({
+  weight: '400',
+  subsets: ['math'],
+  variable: '--font-noto-sans-math',
   display: 'swap',
 })
 
@@ -33,7 +34,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className={`${spaceGrotesk.variable} ${inter.variable} font-sans antialiased`}>
+      <body className={`${notoSansMath.variable} ${inter.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>

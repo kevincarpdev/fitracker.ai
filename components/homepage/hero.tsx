@@ -8,22 +8,18 @@ import { motion, useScroll, useTransform } from "framer-motion"
 
 interface HeroProps {
   heroScale: number
-  heroOpacity: number
   heroBlur: number
   appScreenshotY: number
   appScreenshotScale: number
   appScreenshotOpacity: number
-  heroContentOpacity: number
 }
 
 const Hero = memo(({ 
   heroScale, 
-  heroOpacity, 
   heroBlur, 
   appScreenshotY, 
   appScreenshotScale, 
-  appScreenshotOpacity, 
-  heroContentOpacity 
+  appScreenshotOpacity
 }: HeroProps) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[hsl(var(--primary-300))]">
@@ -32,7 +28,6 @@ const Hero = memo(({
         className="absolute inset-0 transition-all will-change-transform"
         style={{
           transform: `scale(${heroScale})`,
-          opacity: heroOpacity,
           filter: `blur(${heroBlur}px)`,
         }}
         aria-hidden="true"
@@ -46,10 +41,9 @@ const Hero = memo(({
         /> */}
       </div>
 
-      {/* Hero content that fades out */}
+      {/* Hero content */}
       <div 
-        className="relative max-w-5xl mx-auto px-6 text-center z-10 transition-opacity duration-300"
-        style={{ opacity: heroContentOpacity }}
+        className="relative max-w-5xl mx-auto px-6 text-center z-10"
       >
         <div className="mb-8 flex items-center justify-center">
           <Logo size="xl" showText={false} />

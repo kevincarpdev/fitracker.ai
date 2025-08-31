@@ -60,11 +60,11 @@ const FAQ = memo(() => {
               <div key={index} className="border-b border-border">
                 <button
                   onClick={() => setExpandedFaq(open ? null : index)}
-                  className="w-full py-6 flex items-center justify-between text-left hover:opacity-70 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-[hsl(var(--ring))]"
+                  className="cursor-pointer w-full py-6 flex items-center justify-between text-left hover:opacity-70 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-[hsl(var(--ring))]"
                   aria-expanded={open}
                   aria-controls={`faq-panel-${index}`}
                 >
-                  <span className="text-lg font-heading font-medium pr-4">{item.question}</span>
+                  <span className="text-lg font-semibold pr-4">{item.question}</span>
                   <ChevronDown className={`w-6 h-6 transition-transform ${open ? "rotate-180" : ""}`} />
                 </button>
                 {open && (

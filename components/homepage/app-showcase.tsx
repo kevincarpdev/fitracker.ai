@@ -1,7 +1,6 @@
 "use client"
 
 import { memo } from "react"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Users, Brain, TrendingUp, MessageCircle, Calendar } from "lucide-react"
 import { useAppShowcaseEffects } from "@/hooks/use-app-showcase-effects"

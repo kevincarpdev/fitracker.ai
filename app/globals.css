@@ -134,11 +134,11 @@
 
 /* ===== Typography ===== */
 .font-heading {
-  font-family: var(--font-noto-sans-math), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
 }
 
 .font-body {
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
 }
 
 /* ===== Gradients ===== */

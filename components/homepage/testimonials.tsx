@@ -5,19 +5,29 @@ import { memo } from "react"
 const Testimonials = memo(() => {
   const testimonials = [
     {
-      quote: "Fitracker is my complete health companion! I love that I can speak my meals when I'm rushing, snap photos when convenient, or type when I have time. The daily AI recommendations have completely transformed my routine - I actually look forward to my personalized workouts and meal suggestions!",
-      author: "Sarah M.",
-      title: "Lost 35 lbs & gained strength"
+      quote: "Fitracker completely changed my relationship with health. The voice feature is incredible - I can log my breakfast while getting ready for work, and the AI coach gives me daily recommendations that actually fit my crazy schedule. The community support helped me stay consistent, and I've built healthy habits I never thought possible.",
+      author: "Marie Cole",
+      title: "Marketing Manager"
     },
     {
-      quote: "The voice feature is a game-changer for busy professionals like me. I can tell Fitracker what I ate during my commute, log workouts while still at the gym, and get daily recommendations that actually fit my schedule. The community support keeps me accountable too.",
-      author: "Marcus R.",
-      title: "Executive who found work-life balance"
+      quote: "As someone who'd never set foot in a gym, Fitracker made fitness approachable. I love that I can take photos of my home workouts, get daily suggestions tailored to my space, and connect with others who started where I did. The app's design is so clean and simple - it never feels overwhelming.",
+      author: "David Chen",
+      title: "Software Developer"
     },
     {
-      quote: "I've never had such comprehensive health support in one app. The AI coach gives me daily nutrition and fitness guidance, I can track everything easily with photos or voice, and the community celebrates every win. Fitracker truly guides you through your entire health journey.",
-      author: "Jennifer K.",
-      title: "Complete lifestyle transformation"
+      quote: "The convenience is unmatched. Between surgeries, I can quickly voice-log my meals or snap photos of patient lunches. Fitracker's AI recommendations help me maintain energy throughout 12-hour shifts, and finding healthy options near the hospital has been a lifesaver. The community understands the healthcare lifestyle.",
+      author: "Dr. Aisha Patel",
+      title: "Emergency Physician"
+    },
+    {
+      quote: "Fitracker taught me that fitness isn't just about the gym - it's about building a sustainable lifestyle. The AI coach helped me create realistic goals, the community celebrated my progress photos, and discovering healthy restaurants made social eating stress-free. I've never felt more confident about my health choices.",
+      author: "James Thompson",
+      title: "High School Teacher"
+    },
+    {
+      quote: "Between three kids and running my own business, I thought getting healthy was impossible. Fitracker's voice tracking lets me log meals while multitasking, the AI gives me quick workout ideas for naptime, and the community provides the motivation I need. It's like having a personal trainer and nutritionist in my pocket.",
+      author: "Rebecca Martinez",
+      title: "Small Business Owner & Mom"
     }
   ]
 

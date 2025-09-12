@@ -3,6 +3,7 @@
 import { memo } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowDownIcon } from "lucide-react"
+import Image from "next/image"
 
 const CTA = memo(() => {
   return (
@@ -18,7 +19,7 @@ const CTA = memo(() => {
 
         {/* Two CTA Boxes */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-5xl mx-auto">
-          {/* Book a Call Box */}
+          {/* Start Free Today Box */}
           <div className="lg:col-span-3 bg-white/10 backdrop-blur-sm rounded-3xl p-8 text-left relative overflow-hidden">
             <div className="mb-6">
               <div className="flex items-center justify-between mb-4">
@@ -37,8 +38,16 @@ const CTA = memo(() => {
               Start Free Today →
             </Button>
 
-            {/* Phone mockup placeholder */}
-            <div className="absolute -right-8 -bottom-8 w-32 h-48 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl transform rotate-12 opacity-30"></div>
+            {/* App screenshot */}
+            <div className="absolute -right-4 -bottom-12 w-28 h-auto">
+              <Image 
+                src="/screen1.png" 
+                alt="Fitracker App Screenshot" 
+                width={120} 
+                height={240}
+                className="transform rotate-12 opacity-80 rounded-2xl shadow-2xl"
+              />
+            </div>
           </div>
 
           {/* Download App Box */}
@@ -60,8 +69,16 @@ const CTA = memo(() => {
               Download App →
             </Button>
 
-            {/* Phone mockup placeholder */}
-            <div className="absolute -right-8 -bottom-8 w-32 h-48 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl transform -rotate-12 opacity-30"></div>
+            {/* App screenshot */}
+            <div className="absolute -right-12 -bottom-12 w-28 h-auto">
+              <Image 
+                src="/screen2.png" 
+                alt="Fitracker App Screenshot" 
+                width={120} 
+                height={240}
+                className="transform -rotate-12 opacity-80 rounded-2xl shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </div>

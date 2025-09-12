@@ -1,19 +1,11 @@
 import type { Metadata } from 'next'
-import { Inter, Noto_Sans_Math } from 'next/font/google'
+import { Nunito } from 'next/font/google'
 import './globals.css'
 
-// Formula-style font (Noto Sans Math for mathematical expressions)
-const notoSansMath = Noto_Sans_Math({
-  weight: '400',
-  subsets: ['math'],
-  variable: '--font-noto-sans-math',
-  display: 'swap',
-})
-
-// Inter for body text
-const inter = Inter({
+// Nunito font for all text
+const nunito = Nunito({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-nunito',
   display: 'swap',
 })
 
@@ -34,7 +26,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className={`${notoSansMath.variable} ${inter.variable} font-sans antialiased`}>
+      <body className={`${nunito.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>

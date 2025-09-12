@@ -9,7 +9,7 @@ const Contact = memo(() => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <Image src="/contact1.jpg" alt="Fitracker App" width={500} height={500} className="rounded-3xl aspect-[2/3] object-cover" />
+            <Image src="/FB002.png" alt="Fitracker App" width={500} height={500} className="rounded-3xl aspect-[2/3] object-cover" />
           </div>
 
           <div>

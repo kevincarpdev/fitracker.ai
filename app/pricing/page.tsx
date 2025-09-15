@@ -4,27 +4,34 @@ import { memo, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Check, ArrowLeft, Star, Zap, Shield, Users, BarChart3, Heart } from "lucide-react"
+import { Check, ArrowLeft, Star, Zap, Heart, Users, Camera, MessageCircle, BarChart3, Utensils, Dumbbell, MapPin } from "lucide-react"
 import Link from "next/link"
 import { Logo } from "@/components/logo"
 
 const PricingPage = memo(() => {
-  const [isAnnual, setIsAnnual] = useState(false)
-
   const plans = [
     {
-      name: "Free Starter",
+      name: "Free Plan",
       description: "Perfect for getting started with your health journey",
       price: "$0",
       period: "/month",
-      yearlyPrice: "$0",
       features: [
-        "Basic AI food recognition",
-        "Manual nutrition tracking",
-        "Community access",
-        "Progress photo storage",
-        "Basic workout logging",
-        "Weekly progress reports"
+        { text: "3 daily food entries", icon: Utensils },
+        { text: "2 weekly workouts", icon: Dumbbell },
+        { text: "2 AI questions/day", icon: MessageCircle },
+        { text: "1 daily recommendation", icon: Star },
+        { text: "Basic progress tracking", icon: BarChart3 },
+        { text: "Full community access", icon: Users },
+        { text: "Location recommendations", icon: MapPin }
+      ],
+      limitations: [
+        "Limited AI coach interactions (2/day)",
+        "Limited voice features (2/day, 30s max)",
+        "Photo recognition (5/day, 100/month)",
+        "Progress photos (10 max, 2/week)",
+        "Analytics (last 7 days only)",
+        "Basic meal suggestions (1/day)",
+        "Basic workout templates (2 only)"
       ],
       cta: "Start Free Today",
       popular: false,
@@ -32,83 +39,41 @@ const PricingPage = memo(() => {
       color: "from-green-500 to-emerald-600"
     },
     {
-      name: "Premium Pro",
-      description: "Unlock your full potential with advanced AI coaching",
+      name: "Premium",
+      description: "Unlock unlimited access to all features",
       price: "$9.99",
       period: "/month",
-      yearlyPrice: "$99.99",
-      yearlyDiscount: "Save 17%",
       features: [
-        "Unlimited AI food scans",
-        "Advanced nutrition analytics",
-        "Personalized AI coaching",
-        "Priority location recommendations",
-        "Enhanced community features",
-        "Export data capabilities",
-        "Priority customer support",
-        "Advanced workout plans",
-        "Detailed progress analytics",
-        "Custom meal planning",
-        "Integration with wearables",
-        "Offline mode access"
+        { text: "20 daily food entries", icon: Utensils },
+        { text: "10 weekly workouts", icon: Dumbbell },
+        { text: "20 AI questions/day", icon: MessageCircle },
+        { text: "3 daily recommendations", icon: Star },
+        { text: "2 weekly challenges", icon: Star },
+        { text: "Advanced analytics & export", icon: BarChart3 },
+        { text: "Unlimited progress photos", icon: Camera },
+        { text: "Custom goals (5)", icon: Star },
+        { text: "Premium recipes & meal plans", icon: Utensils },
+        { text: "Unlimited personalized workouts", icon: Dumbbell },
+        { text: "Unlimited photo recognition", icon: Camera },
+        { text: "Unlimited voice interactions", icon: MessageCircle }
       ],
       cta: "Start Premium Trial",
       popular: true,
       icon: Zap,
       color: "from-purple-600 to-pink-600"
-    },
-    {
-      name: "Team & Family",
-      description: "Perfect for families and small groups",
-      price: "$19.99",
-      period: "/month",
-      yearlyPrice: "$199.99",
-      yearlyDiscount: "Save 17%",
-      features: [
-        "Everything in Premium Pro",
-        "Up to 5 family members",
-        "Shared family goals",
-        "Family progress dashboard",
-        "Bulk meal planning",
-        "Family challenges",
-        "Priority support for all members",
-        "Admin controls",
-        "Usage analytics",
-        "Custom family recipes"
-      ],
-      cta: "Start Family Plan",
-      popular: false,
-      icon: Users,
-      color: "from-blue-600 to-cyan-600"
     }
   ]
 
   const handleStartFree = () => {
-    // In a real app, this would redirect to sign-up or app download
     window.open('https://apps.apple.com/app/fitracker', '_blank')
   }
 
   const handleStartPremium = () => {
-    // In a real app, this would redirect to premium sign-up
-    window.open('https://apps.apple.com/app/fitracker', '_blank')
-  }
-
-  const handleStartFamily = () => {
-    // In a real app, this would redirect to family plan sign-up
     window.open('https://apps.apple.com/app/fitracker', '_blank')
   }
 
   const getButtonHandler = (planName: string) => {
-    switch (planName) {
-      case "Free Starter":
-        return handleStartFree
-      case "Premium Pro":
-        return handleStartPremium
-      case "Team & Family":
-        return handleStartFamily
-      default:
-        return handleStartFree
-    }
+    return planName === "Free Plan" ? handleStartFree : handleStartPremium
   }
 
   return (
@@ -124,7 +89,7 @@ const PricingPage = memo(() => {
               </Link>
             </div>
             <Logo size="md" showText />
-            <div className="w-20" /> {/* Spacer for centering */}
+            <div className="w-20" />
           </div>
         </div>
       </header>
@@ -132,113 +97,102 @@ const PricingPage = memo(() => {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-6 py-16">
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4">
-            <Star className="w-4 h-4 mr-2" />
-            Choose Your Plan
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            Transform Your Health Journey
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Choose the perfect plan to unlock your health potential with AI-powered coaching, comprehensive tracking, and community support.
-          </p>
-          
-          {/* Billing Toggle */}
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <span className={`font-medium ${!isAnnual ? 'text-primary' : 'text-muted-foreground'}`}>
-              Monthly
-            </span>
-            <button
-              onClick={() => setIsAnnual(!isAnnual)}
-              className={`relative w-14 h-8 rounded-full transition-colors ${
-                isAnnual ? 'bg-primary' : 'bg-muted'
-              }`}
-            >
-              <div
-                className={`absolute top-1 w-6 h-6 bg-white rounded-full shadow-sm transition-transform ${
-                  isAnnual ? 'translate-x-7' : 'translate-x-1'
-                }`}
-              />
-            </button>
-            <span className={`font-medium ${isAnnual ? 'text-primary' : 'text-muted-foreground'}`}>
-              Annual
-            </span>
-            {isAnnual && (
-              <Badge variant="secondary" className="ml-2">
-                Save 17%
-              </Badge>
-            )}
+        <div className="text-center mb-20">
+          <div className="flex flex-row items-center justify-center gap-4 mb-8">
+            <Star className="w-12 h-12 text-primary" />
+            <h1 className="text-4xl font-bold">
+              Choose Your Plan
+            </h1>
           </div>
+          <p className="text-2xl md:text-3xl font-semibold mb-6 text-foreground">
+            Transform Your Health Journey
+          </p>
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8 leading-relaxed">
+            Start free and upgrade anytime to unlock unlimited AI coaching, advanced analytics, and premium features.
+          </p>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-8 mb-16 max-w-5xl mx-auto">
           {plans.map((plan, index) => {
             const IconComponent = plan.icon
-            const currentPrice = isAnnual ? plan.yearlyPrice : plan.price
-            const displayPrice = isAnnual ? plan.yearlyPrice : plan.price
-            const displayPeriod = isAnnual ? "/year" : plan.period
 
             return (
               <Card
                 key={index}
-                className={`relative overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 ${
+                className={`relative overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] ${
                   plan.popular
-                    ? "border-primary shadow-xl ring-2 ring-primary/20"
-                    : "border-border hover:border-primary/50"
+                    ? "border-primary shadow-xl ring-2 ring-primary/20 bg-gradient-to-b from-primary/5 to-primary/10"
+                    : "border-border hover:border-primary/50 bg-card hover:bg-gradient-to-b hover:from-muted/30 hover:to-muted/10"
                 }`}
               >
-                {plan.popular && (
-                  <div className="absolute -top-0 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-primary text-primary-foreground px-4 py-1">
-                      Most Popular
-                    </Badge>
-                  </div>
-                )}
                 
-                <CardHeader className="text-center pb-2">
-                  <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${plan.color} flex items-center justify-center`}>
-                    <IconComponent className="w-8 h-8 text-white" />
+                <CardHeader className="text-center pb-4">
+                  <div className={`w-20 h-20 mx-auto mb-2 rounded-full bg-gradient-to-r ${plan.color} flex items-center justify-center shadow-lg`}>
+                    <IconComponent className="w-10 h-10 text-white" />
                   </div>
-                  <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
-                  <CardDescription className="text-muted-foreground">
+                  <CardTitle className="text-3xl font-bold">{plan.name}</CardTitle>
+                  <CardDescription className="text-muted-foreground text-lg">
                     {plan.description}
                   </CardDescription>
                 </CardHeader>
                 
-                <CardContent className="text-center pb-2">
-                  <div className="mb-6">
-                    <div className="text-4xl font-bold mb-1">
-                      {displayPrice}
-                      <span className="text-lg font-normal text-muted-foreground">
-                        {displayPeriod}
+                <CardContent className="text-center pb-4">
+                  <div className="mb-8">
+                    <div className="text-5xl font-bold mb-2">
+                      {plan.price}
+                      <span className="text-xl font-normal text-muted-foreground">
+                        {plan.period}
                       </span>
                     </div>
-                    {isAnnual && plan.yearlyDiscount && (
-                      <div className="text-sm text-green-600 font-medium">
-                        {plan.yearlyDiscount}
+                  </div>
+                  
+                    <div className="text-left space-y-6">
+                    <div>
+                      <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide mb-3">
+                        What's Included
+                      </h4>
+                      <ul className="space-y-2">
+                        {plan.features.map((feature, featureIndex) => {
+                          const FeatureIcon = feature.icon
+                          return (
+                            <li key={featureIndex} className="flex items-center gap-3">
+                              <FeatureIcon className="w-4 h-4 text-green-500 flex-shrink-0" />
+                              <span className="text-sm">{feature.text}</span>
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    </div>
+
+                    {plan.limitations && (
+                      <div>
+                        <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide mb-3">
+                          Limitations
+                        </h4>
+                        <ul className="space-y-2">
+                          {plan.limitations.map((limitation, limitIndex) => (
+                            <li key={limitIndex} className="flex items-start gap-3">
+                              <div className="w-4 h-4 rounded-full bg-orange-100 flex items-center justify-center mt-0.5 flex-shrink-0">
+                                <div className="w-2 h-2 rounded-full bg-orange-500" />
+                              </div>
+                              <span className="text-sm text-muted-foreground">{limitation}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     )}
                   </div>
-                  
-                  <ul className="space-y-3 text-left">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start gap-3">
-                        <Check className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </CardContent>
                 
                 <CardFooter>
                   <Button 
                     onClick={getButtonHandler(plan.name)}
-                    className={`w-full py-3 font-semibold transition-all ${
+                    size="lg"
+                    className={`h-auto w-full py-4 px-8 text-lg font-semibold transition-all hover:scale-105 cursor-pointer ${
                       plan.popular
-                        ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg"
-                        : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                        ? "bg-gradient-to-r from-blue-500 to-blue-600 hover:scale-105  text-white transition-all shadow-lg"
+                        : "bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:from-green-600 hover:to-emerald-700 shadow-md"
                     }`}
                   >
                     {plan.cta}
@@ -249,40 +203,50 @@ const PricingPage = memo(() => {
           })}
         </div>
 
-        {/* Features Comparison */}
-        <div className="bg-card rounded-3xl p-8 mb-16">
-          <h2 className="text-3xl font-bold text-center mb-8">Compare All Features</h2>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b">
-                  <th className="text-left py-4 font-semibold">Features</th>
-                  <th className="text-center py-4 font-semibold">Free</th>
-                  <th className="text-center py-4 font-semibold">Premium</th>
-                  <th className="text-center py-4 font-semibold">Family</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y">
-                {[
-                  { feature: "AI Food Recognition", free: "Basic", premium: "Unlimited", family: "Unlimited" },
-                  { feature: "Nutrition Tracking", free: "✓", premium: "✓", family: "✓" },
-                  { feature: "Workout Logging", free: "Basic", premium: "Advanced", family: "Advanced" },
-                  { feature: "Community Access", free: "✓", premium: "Enhanced", family: "Enhanced" },
-                  { feature: "AI Coaching", free: "✗", premium: "✓", family: "✓" },
-                  { feature: "Data Export", free: "✗", premium: "✓", family: "✓" },
-                  { feature: "Priority Support", free: "✗", premium: "✓", family: "✓" },
-                  { feature: "Family Dashboard", free: "✗", premium: "✗", family: "✓" },
-                  { feature: "Multiple Users", free: "1", premium: "1", family: "Up to 5" }
-                ].map((row, index) => (
-                  <tr key={index}>
-                    <td className="py-4 font-medium">{row.feature}</td>
-                    <td className="text-center py-4">{row.free}</td>
-                    <td className="text-center py-4">{row.premium}</td>
-                    <td className="text-center py-4">{row.family}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        {/* Key Features Overview */}
+        <div className="bg-gradient-to-br from-card to-muted/20 rounded-3xl p-12 mb-16 border">
+          <h2 className="text-4xl font-bold text-center mb-12">Core Features</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: Utensils, title: "Calorie & Macro Tracking", desc: "Track nutrition with AI-powered food recognition" },
+              { icon: Dumbbell, title: "Exercise Logging", desc: "Log workouts and track your fitness progress" },
+              { icon: MessageCircle, title: "AI-Powered Coaching", desc: "Get personalized guidance from our AI coach" },
+              { icon: Users, title: "Social Community", desc: "Connect with others on their health journey" },
+              { icon: Camera, title: "Progress Photos", desc: "Visual tracking of your transformation" },
+              { icon: BarChart3, title: "Water Tracking", desc: "Stay hydrated with smart reminders" },
+              { icon: Star, title: "Real-time Sync", desc: "Access your data anywhere, anytime" },
+              { icon: MapPin, title: "Location Features", desc: "Find gyms, restaurants, and healthy options nearby" }
+            ].map((feature, index) => {
+              const FeatureIcon = feature.icon
+              return (
+                <div key={index} className="text-center p-6 rounded-2xl bg-background/50 hover:bg-background/80 transition-all">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-primary/20 to-primary/10 flex items-center justify-center">
+                    <FeatureIcon className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="font-semibold mb-3 text-lg">{feature.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{feature.desc}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Support Section */}
+        <div className="bg-gradient-to-r from-muted/50 to-muted/30 rounded-3xl p-12 mb-16 border">
+          <h2 className="text-3xl font-bold text-center mb-8">Support & Resources</h2>
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div className="p-6 rounded-2xl bg-background/30">
+              <h3 className="font-semibold mb-3 text-lg">Email Support</h3>
+              <p className="text-muted-foreground">support@fitracker.ai</p>
+            </div>
+            <div className="p-6 rounded-2xl bg-background/30">
+              <h3 className="font-semibold mb-3 text-lg">Documentation</h3>
+              <p className="text-muted-foreground">docs.fitracker.ai</p>
+            </div>
+            <div className="p-6 rounded-2xl bg-background/30">
+              <h3 className="font-semibold mb-3 text-lg">Community</h3>
+              <p className="text-muted-foreground">community.fitracker.ai</p>
+            </div>
           </div>
         </div>
 
@@ -292,20 +256,20 @@ const PricingPage = memo(() => {
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
             {[
               {
-                question: "Can I change my plan anytime?",
-                answer: "Yes! You can upgrade, downgrade, or cancel your plan at any time. Changes take effect at your next billing cycle."
+                question: "Can I upgrade from Free to Premium anytime?",
+                answer: "Yes! You can upgrade to Premium at any time. Your free plan data will be preserved and you'll immediately get access to all Premium features."
+              },
+              {
+                question: "What happens when I reach my daily limits on the Free plan?",
+                answer: "When you reach daily limits (like AI questions or photo scans), you'll see a friendly upgrade prompt. Limits reset daily or monthly depending on the feature."
               },
               {
                 question: "Is there a free trial for Premium?",
-                answer: "Yes! We offer a 14-day free trial for Premium Pro so you can experience all the advanced features risk-free."
+                answer: "Yes! Premium comes with a free trial so you can experience unlimited features before committing to the subscription."
               },
               {
                 question: "What payment methods do you accept?",
-                answer: "We accept all major credit cards, PayPal, and Apple Pay. All payments are processed securely."
-              },
-              {
-                question: "Can I use the family plan for my team?",
-                answer: "Absolutely! The Family plan works great for small teams, workout groups, or any group of up to 5 people."
+                answer: "We accept all major credit cards, PayPal, and Apple Pay through the App Store. All payments are processed securely."
               }
             ].map((faq, index) => (
               <Card key={index} className="p-6">
@@ -320,13 +284,22 @@ const PricingPage = memo(() => {
         <div className="text-center bg-gradient-to-r from-primary/10 to-primary/5 rounded-3xl p-12">
           <h2 className="text-3xl font-bold mb-4">Ready to Start Your Journey?</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join thousands of users who have transformed their health with Fitracker's AI-powered platform.
+            Join thousands of users who have transformed their health with FiTracker's AI-powered platform.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button onClick={handleStartFree} size="lg" variant="outline">
+            <Button 
+              onClick={handleStartFree} 
+              size="lg" 
+              variant="outline"
+              className="h-auto py-3 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all hover:scale-105 text-lg cursor-pointer"
+            >
               Start Free Today
             </Button>
-            <Button onClick={handleStartPremium} size="lg">
+            <Button 
+              onClick={handleStartPremium} 
+              size="lg"
+              className="h-auto py-3 bg-green-500 hover:bg-green-600 hover:scale-105 transition-all shadow-lg text-white font-semibold text-lg cursor-pointer"
+            >
               Try Premium Free
             </Button>
           </div>

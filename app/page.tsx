@@ -9,7 +9,7 @@ import HowItWorks from "@/components/homepage/how-it-works"
 import Features from "@/components/homepage/features"
 import Community from "@/components/homepage/community"
 import Testimonials from "@/components/homepage/testimonials"
-// import Pricing from "@/components/homepage/pricing"
+import Pricing from "@/components/homepage/pricing"
 // import AppShowcase from "@/components/homepage/app-showcase"
 import CTA from "@/components/homepage/cta"
 import FAQ from "@/components/homepage/faq"
@@ -43,7 +43,7 @@ const FitrackerApp = memo(() => {
       <Features />
       <Community />
       <Testimonials />
-      {/* <Pricing /> */}
+      <Pricing />
       <CTA />
       <FAQ />
       <Contact />

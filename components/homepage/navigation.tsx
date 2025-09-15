@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Logo } from "@/components/logo"
 import { useScrollNavigation } from "@/hooks/use-scroll-navigation"
+import { useRouter } from "next/navigation"
 
 interface NavigationProps {
   navOpacity: number
@@ -14,11 +15,12 @@ const Navigation = memo(({ navOpacity }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
   const { isVisible, isScrolling } = useScrollNavigation({ threshold: 20, debounceMs: 150 })
+  const router = useRouter()
 
   const navLinks = [
     { href: "#about", label: "About" },
     { href: "#features", label: "Features" },
-    { href: "#pricing", label: "Pricing" },
+    { href: "/pricing", label: "Pricing" },
     { href: "#community", label: "Community" },
   ]
 
@@ -36,6 +38,11 @@ const Navigation = memo(({ navOpacity }: NavigationProps) => {
     setTimeout(() => {
       setIsMenuOpen(false)
     }, 300)
+  }
+
+  const handleStartFree = () => {
+    // In a real app, this would redirect to sign-up or app download
+    window.open('https://apps.apple.com/app/fitracker', '_blank')
   }
 
   // Close menu on escape key
@@ -111,6 +118,7 @@ const Navigation = memo(({ navOpacity }: NavigationProps) => {
 
           <div className="flex items-center gap-4 text-right">
             <Button
+              onClick={handleStartFree}
               className="cursor-pointer h-auto bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary)/0.9)] rounded-xl px-6 font-heading font-bold text-lg shadow-lg hover:shadow-xl transition-all py-3 text-right"
               aria-label="Start your journey free"
             >

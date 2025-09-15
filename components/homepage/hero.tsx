@@ -55,7 +55,10 @@ const Hero = memo(({
           The ultimate health companion combining fitness tracking, nutrition guidance, community support, and AI coaching - all in one beautifully simple app
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-          <Button className="h-auto bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary)/0.9)] rounded-2xl px-8 py-4 text-lg font-heading font-semibold">
+          <Button 
+            onClick={() => window.open('https://apps.apple.com/app/fitracker', '_blank')}
+            className="h-auto bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary)/0.9)] rounded-2xl px-8 py-4 text-lg font-heading font-semibold"
+          >
             Start Your Journey  →
           </Button>
 

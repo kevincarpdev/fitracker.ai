@@ -6,6 +6,16 @@ import { ArrowDownIcon } from "lucide-react"
 import Image from "next/image"
 
 const CTA = memo(() => {
+  const handleStartFree = () => {
+    // In a real app, this would redirect to sign-up or app download
+    window.open('https://apps.apple.com/app/fitracker', '_blank')
+  }
+
+  const handleDownloadApp = () => {
+    // In a real app, this would redirect to app store
+    window.open('https://apps.apple.com/app/fitracker', '_blank')
+  }
+
   return (
     <section className="py-20 bg-gradient-to-br from-[hsl(var(--primary-950))] to-[hsl(var(--primary-600))] text-[hsl(var(--primary-foreground))] relative overflow-hidden">
       
@@ -34,7 +44,10 @@ const CTA = memo(() => {
               </p>
             </div>
 
-            <Button className="h-auto bg-[hsl(var(--primary-800))] hover:bg-[hsl(var(--primary-900))] text-white rounded-xl px-8 py-3 font-heading font-semibold">
+            <Button 
+              onClick={handleStartFree}
+              className="h-auto bg-[hsl(var(--primary-800))] hover:bg-[hsl(var(--primary-900))] text-white rounded-xl px-8 py-3 font-heading font-semibold"
+            >
               Start Free Today →
             </Button>
 
@@ -65,7 +78,10 @@ const CTA = memo(() => {
               </p>
             </div>
 
-            <Button className="h-auto bg-[hsl(var(--primary-800))] hover:bg-[hsl(var(--primary-700))] text-white rounded-xl px-8 py-3 font-heading font-semibold">
+            <Button 
+              onClick={handleDownloadApp}
+              className="h-auto bg-[hsl(var(--primary-800))] hover:bg-[hsl(var(--primary-700))] text-white rounded-xl px-8 py-3 font-heading font-semibold"
+            >
               Download App →
             </Button>
 

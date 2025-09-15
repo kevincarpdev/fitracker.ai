@@ -2,8 +2,19 @@
 
 import { memo } from "react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 const Pricing = memo(() => {
+  const handleStartFree = () => {
+    // In a real app, this would redirect to sign-up or app download
+    window.open('https://apps.apple.com/app/fitracker', '_blank')
+  }
+
+  const handleStartPremium = () => {
+    // In a real app, this would redirect to premium sign-up
+    window.open('https://apps.apple.com/app/fitracker', '_blank')
+  }
+
   const plans = [
     {
       name: "Get Started Free",
@@ -77,6 +88,7 @@ const Pricing = memo(() => {
               </ul>
 
               <Button 
+                onClick={plan.name === "Get Started Free" ? handleStartFree : handleStartPremium}
                 className={`w-full rounded-full py-3 font-heading font-semibold ${
                   plan.popular
                     ? "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
@@ -87,6 +99,14 @@ const Pricing = memo(() => {
               </Button>
             </div>
           ))}
+        </div>
+        
+        <div className="text-center mt-12">
+          <Link href="/pricing">
+            <Button variant="outline" className="rounded-full px-8 py-3 font-heading font-semibold">
+              View Full Pricing & Features →
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,10 +1,9 @@
 "use client"
 
-import { memo, useState } from "react"
+import { memo } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Check, ArrowLeft, Star, Zap, Heart, Users, Camera, MessageCircle, BarChart3, Utensils, Dumbbell, MapPin } from "lucide-react"
+import { ArrowLeft, Star, Zap, Heart, Users, Camera, MessageCircle, BarChart3, Utensils, Dumbbell, MapPin } from "lucide-react"
 import Link from "next/link"
 import { Logo } from "@/components/logo"
 

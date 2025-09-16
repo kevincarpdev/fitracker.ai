@@ -5,7 +5,6 @@ import { useScrollEffects } from "@/hooks/use-scroll-effects"
 import Navigation from "@/components/homepage/navigation"
 import Hero from "@/components/homepage/hero"
 import About from "@/components/homepage/about"
-import HowItWorks from "@/components/homepage/how-it-works"
 import Features from "@/components/homepage/features"
 import Community from "@/components/homepage/community"
 import Testimonials from "@/components/homepage/testimonials"
@@ -39,7 +38,6 @@ const FitrackerApp = memo(() => {
       />
       {/* <AppShowcase /> */}
       <About />
-      <HowItWorks />
       <Features />
       <Community />
       <Testimonials />

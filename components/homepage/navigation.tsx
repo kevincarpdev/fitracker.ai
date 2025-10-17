@@ -5,7 +5,6 @@ import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Logo } from "@/components/logo"
 import { useScrollNavigation } from "@/hooks/use-scroll-navigation"
-import { useRouter } from "next/navigation"
 
 interface NavigationProps {
   navOpacity: number
@@ -15,7 +14,6 @@ const Navigation = memo(({ navOpacity }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
   const { isVisible, isScrolling } = useScrollNavigation({ threshold: 20, debounceMs: 150 })
-  const router = useRouter()
 
   const navLinks = [
     { href: "#about", label: "About" },
@@ -67,69 +65,39 @@ const Navigation = memo(({ navOpacity }: NavigationProps) => {
 
   return (
     <>
-      <nav 
-        className={`fixed top-8 left-4 right-4 z-40 transition-all duration-500 ease-out ${
-          isVisible 
-            ? 'translate-y-0 opacity-100' 
-            : '-translate-y-full opacity-0'
-        }`}
-      >
-        <div
-          className={`
-              max-w-5xl mx-auto pl-6 py-3 pr-2
-              flex items-center justify-between
-              relative
-              rounded-3xl
-              border
-              border-[#06140e1a]
-              shadow-[0_24px_40px_-26px_#06140e12]
-              backdrop-blur-[15px]
-              bg-[#f7f4eebf]
-              backdrop-blur-xl transition-all duration-300
-              ${isScrolling ? 'scale-95' : 'scale-100'}
-            `}
-          style={{
-            // fallback for browsers that don't support tailwind's arbitrary values
-            backdropFilter: "blur(15px)",
-            backgroundColor: "#f7f4eebf",
-            borderColor: "#06140e1a",
-            borderRadius: "1.5rem",
-            boxShadow: "0 24px 40px -26px #06140e12",
-            display: "flex",
-            position: "relative",
-          }}
-        >
+      <nav className="absolute top-0 left-0 right-0 z-40 transition-all duration-500 ease-out px-4 md:px-6">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between relative transition-all duration-300">
           <div className="flex items-center gap-2">
-            <Logo size="md" showText />
+            <Logo size="md" showText className="text-white" />
           </div>
 
-          <div className="hidden lg:flex items-center gap-10 text-right">
+          <div className="hidden lg:flex items-center gap-8">
             {navLinks.map(({ href, label }) => (
               <a
                 key={href}
                 href={href}
-                className="font-heading text-lg font-medium text-[hsl(var(--primary))] relative group text-right"
+                className="font-heading text-base font-semibold text-white relative group hover:text-white/80 transition-colors"
               >
                 {label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[hsl(var(--primary))] transition-all duration-200 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-white to-white/80 transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
           </div>
 
-          <div className="flex items-center gap-4 text-right">
+          <div className="flex items-center gap-3">
             <Button
               onClick={handleStartFree}
-              className="cursor-pointer h-auto bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary)/0.9)] rounded-xl px-6 font-heading font-bold text-lg shadow-lg hover:shadow-xl transition-all py-3 text-right"
+              className="cursor-pointer h-auto bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--primary-700))] text-white hover:shadow-lg hover:shadow-[hsl(var(--primary-300))]/50 rounded-2xl px-6 md:px-8 font-heading font-bold text-base shadow-md transition-all py-3 group"
               aria-label="Start your journey free"
             >
-              Start Free →
+              Start Free
             </Button>
             <button
               onClick={handleOpenMenu}
-              className="h-full bg-[hsl(var(--primary-300))] text-[hsl(var(--primary))] cursor-pointer p-3 hover:bg-[hsl(var(--primary-300)/0.9)] rounded-2xl transition-all hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[hsl(var(--ring))]"
+              className="lg:hidden bg-white/20 text-white cursor-pointer p-3 hover:bg-white/30 rounded-full transition-all hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               aria-label="Open menu"
             >
-              <Menu className="w-7 h-7" />
+              <Menu className="w-5 h-5" />
             </button>
           </div>
         </div>
@@ -140,10 +108,10 @@ const Navigation = memo(({ navOpacity }: NavigationProps) => {
         <div className="fixed inset-0 z-50">
           {/* Backdrop with fade-in animation */}
           <div
-            className={`absolute inset-0 backdrop-blur-lg bg-black/30 transition-all duration-300 ease-out ${
+            className={`absolute inset-0 backdrop-blur-md bg-black/40 transition-all duration-300 ease-out ${
               isAnimating 
-                ? 'opacity-100 backdrop-blur-lg' 
-                : 'opacity-0 backdrop-blur-none'
+                ? 'opacity-100' 
+                : 'opacity-0'
             }`}
             onClick={handleCloseMenu}
             aria-hidden="true"
@@ -151,30 +119,31 @@ const Navigation = memo(({ navOpacity }: NavigationProps) => {
           
           {/* Navigation menu with slide-in animation */}
           <div 
-            className={`absolute right-0 top-0 h-full w-80 bg-[hsl(var(--primary-600))] backdrop-blur-xl shadow-2xl flex flex-col transition-all duration-300 ease-out transform ${
+            className={`absolute right-4 top-4 bottom-4 w-80 bg-white/95 backdrop-blur-2xl shadow-2xl rounded-3xl flex flex-col transition-all duration-300 ease-out transform border border-white/20 ${
               isAnimating 
-                ? 'translate-x-0' 
-                : 'translate-x-full'
+                ? 'translate-x-0 opacity-100' 
+                : 'translate-x-full opacity-0'
             }`}
           >
-            <div className="p-6 text-right">
-              <div className="flex items-end justify-end mb-12 text-right">
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-8">
+                <Logo size="sm" showText />
                 <button
                   onClick={handleCloseMenu}
-                  className="text-[hsl(var(--primary-foreground))] hover:text-[hsl(var(--primary-foreground)/0.8)] rounded-lg transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[hsl(var(--ring))]"
+                  className="text-[hsl(var(--primary))] hover:bg-[hsl(var(--primary-100))] rounded-full p-2 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[hsl(var(--ring))]"
                   aria-label="Close menu"
                 >
-                  <X className="w-7 h-7" />
+                  <X className="w-6 h-6" />
                 </button>
               </div>
             </div>
 
-            <div className="flex-1 flex flex-col justify-center px-6 space-y-4 text-right">
+            <div className="flex-1 flex flex-col justify-start px-6 space-y-2">
               {navLinks.map(({ href, label }, index) => (
                 <a
                   key={href}
                   href={href}
-                  className={`block text-lg font-heading font-medium text-[hsl(var(--primary-foreground))] hover:text-secondary transition-all duration-300 text-right transform ${
+                  className={`block text-xl font-heading font-bold text-[hsl(var(--primary))] hover:bg-[hsl(var(--primary-100))] px-4 py-3 rounded-xl transition-all duration-300 transform ${
                     isAnimating 
                       ? 'translate-x-0 opacity-100' 
                       : 'translate-x-4 opacity-0'
@@ -188,7 +157,7 @@ const Navigation = memo(({ navOpacity }: NavigationProps) => {
                 </a>
               ))}
 
-              <div className={`pt-4 border-t border-[hsl(var(--secondary))] space-y-4 text-right transition-all duration-300 transform ${
+              <div className={`pt-6 mt-6 border-t border-[hsl(var(--border))] space-y-2 transition-all duration-300 transform ${
                 isAnimating 
                   ? 'translate-x-0 opacity-100' 
                   : 'translate-x-4 opacity-0'
@@ -197,13 +166,21 @@ const Navigation = memo(({ navOpacity }: NavigationProps) => {
                 transitionDelay: '200ms'
               }}
               >
-                <div className="space-y-3">
-                  <a href="#faqs" className="block text-sm text-[hsl(var(--primary-foreground))] hover:text-foreground text-right transition-colors" onClick={handleCloseMenu}>FAQs</a>
-                  <a href="#contact" className="block text-sm text-[hsl(var(--primary-foreground))] hover:text-foreground text-right transition-colors" onClick={handleCloseMenu}>Contact</a>
-                  <a href="#" className="block text-sm text-[hsl(var(--primary-foreground))] hover:text-foreground text-right transition-colors" onClick={handleCloseMenu}>Privacy Policy</a>
-                  <a href="#" className="block text-sm text-[hsl(var(--primary-foreground))] hover:text-foreground text-right transition-colors" onClick={handleCloseMenu}>Terms of Use</a>
-                </div>
+                <a href="#faqs" className="block text-base text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--primary))] px-4 py-2 rounded-xl hover:bg-[hsl(var(--primary-50))] transition-colors" onClick={handleCloseMenu}>FAQs</a>
+                <a href="#contact" className="block text-base text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--primary))] px-4 py-2 rounded-xl hover:bg-[hsl(var(--primary-50))] transition-colors" onClick={handleCloseMenu}>Contact</a>
+                <a href="/privacy" className="block text-base text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--primary))] px-4 py-2 rounded-xl hover:bg-[hsl(var(--primary-50))] transition-colors" onClick={handleCloseMenu}>Privacy Policy</a>
+                <a href="/terms" className="block text-base text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--primary))] px-4 py-2 rounded-xl hover:bg-[hsl(var(--primary-50))] transition-colors" onClick={handleCloseMenu}>Terms of Use</a>
               </div>
+            </div>
+
+            <div className="p-6">
+              <Button
+                onClick={handleStartFree}
+                className="w-full cursor-pointer h-auto bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--primary-700))] text-white hover:shadow-lg rounded-2xl px-8 font-heading font-bold text-lg shadow-md transition-all py-4"
+                aria-label="Start your journey free"
+              >
+                Start Free
+              </Button>
             </div>
           </div>
         </div>

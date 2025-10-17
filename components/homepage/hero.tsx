@@ -4,7 +4,6 @@ import { memo } from "react"
 import { Button } from "@/components/ui/button"
 import { Logo } from "@/components/logo"
 import Image from "next/image"
-import { motion, useScroll, useTransform } from "framer-motion"
 
 interface HeroProps {
   heroScale: number
@@ -22,8 +21,8 @@ const Hero = memo(({
   appScreenshotOpacity
 }: HeroProps) => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[hsl(var(--primary-300))]">
-      {/* Background with blur effect */}
+    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+      {/* Background Image with built-in overlay gradient */}
       <div
         className="absolute inset-0 transition-all will-change-transform"
         style={{
@@ -32,40 +31,34 @@ const Hero = memo(({
         }}
         aria-hidden="true"
       >
-        {/* <Image
-          src="/motivational-coach.png"
+        <Image
+          src="/hero.jpg"
           alt=""
           fill
           className="object-cover object-center"
           priority
-        /> */}
+          quality={95}
+        />
       </div>
 
       {/* Hero content */}
       <div 
         className="relative max-w-5xl mx-auto px-6 text-center z-10"
       >
-        <div className="mb-8 flex items-center justify-center">
-          <Logo size="xl" showText={false} />
-        </div>
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[hsl(var(--primary))]">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
           Your Complete AI Health Companion
         </h1>
-        <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-muted-foreground font-body">
+        <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white/90 font-body drop-shadow-md">
           The ultimate health companion combining fitness tracking, nutrition guidance, community support, and AI coaching - all in one beautifully simple app
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button 
             onClick={() => window.open('https://apps.apple.com/app/fitracker', '_blank')}
-            className="h-auto bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary)/0.9)] rounded-2xl px-8 py-4 text-lg font-heading font-semibold"
+            className="h-auto bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--primary-700))] text-white hover:shadow-lg hover:shadow-[hsl(var(--primary-300))]/50 hover:scale-105 rounded-2xl px-10 py-5 text-lg font-heading font-semibold shadow-2xl transition-all duration-300"
           >
-            Start Your Journey  →
+            Start Your Journey
           </Button>
-
         </div>
-        <p className="text-base max-w-4xl mx-auto leading-relaxed text-muted-foreground font-body">
-          Fitracker revolutionizes your health journey with three ways to track: snap photos, speak to our AI, or type manually. Get personalized daily recommendations, log workouts effortlessly, and connect with a supportive community while our AI coach guides you every step of the way - whether you're a complete beginner or fitness enthusiast.
-        </p>
       </div>
     </section>
   )

@@ -7,7 +7,7 @@ const Revolution = memo(() => {
   return (
     <>
       {/* Revolution Section - Full Width with 20px padding */}
-      <section className="w-full px-5 py-5 bg-[#F7F7F7]">
+      <section className="w-full px-5 py-5 bg-[#ffffff]">
         <div className="w-full mx-auto">
           <div className="relative rounded-[12px] overflow-hidden">
             {/* Background Image with Overlay */}
@@ -100,8 +100,8 @@ const Revolution = memo(() => {
 
       {/* Features Section Start */}
       <section className="relative py-20 bg-[#F7F7F7]">
-        <div className="max-w-[1200px] mx-auto px-5">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#050505] mb-16 text-center">
+        <div className="max-w-[1200px] mx-auto">
+          <h2 className="text-4xl md:text-5xl text-[#050505] mb-16 text-center max-w-[25ch] mx-auto">
             Your Complete Health Companion - All the Features You Need
           </h2>
           
@@ -130,7 +130,7 @@ const Revolution = memo(() => {
             </div>
 
             {/* Feature 2 - Personalized Daily Guidance (Image Right) */}
-            <div className="flex flex-col md:flex-row-reverse items-center gap-8 p-4 md:px-10 md:py-4 bg-white border border-[#EEEEEE] rounded-2xl">
+            <div className="flex flex-col md:flex-row-reverse items-center gap-8 p-4 md:py-4 bg-white border border-[#EEEEEE] rounded-2xl">
               <div className="w-full md:w-1/2 relative h-[300px] md:h-[380px]">
                 <Image
                   src="/companion2.jpg"
@@ -151,7 +151,7 @@ const Revolution = memo(() => {
             </div>
 
             {/* Feature 3 - Track Your Entire Health Journey (Image Left) */}
-            <div className="flex flex-col md:flex-row items-center gap-8 p-4 md:px-10 md:py-4 bg-white border border-[#EEEEEE] rounded-2xl">
+            <div className="flex flex-col md:flex-row items-center gap-8 p-4 md:py-4 bg-white border border-[#EEEEEE] rounded-2xl">
               <div className="w-full md:w-1/2 relative h-[300px] md:h-[380px]">
                 <Image
                   src="/companion3.jpg"
@@ -172,7 +172,7 @@ const Revolution = memo(() => {
             </div>
 
             {/* Feature 4 - Your Personal AI Coach (Image Right) */}
-            <div className="flex flex-col md:flex-row-reverse items-center gap-8 p-4 md:px-10 md:py-4 bg-white border border-[#EEEEEE] rounded-2xl">
+            <div className="flex flex-col md:flex-row-reverse items-center gap-8 p-4 md:py-4 bg-white border border-[#EEEEEE] rounded-2xl">
               <div className="w-full md:w-1/2 relative h-[300px] md:h-[380px]">
                 <Image
                   src="/companion4.jpg"
@@ -193,7 +193,7 @@ const Revolution = memo(() => {
             </div>
 
             {/* Feature 5 - AI Coaching Support (Image Left) */}
-            <div className="flex flex-col md:flex-row items-center gap-8 p-4 md:px-10 md:py-4 bg-white border border-[#EEEEEE] rounded-2xl">
+            <div className="flex flex-col md:flex-row items-center gap-8 p-4 md:py-4 bg-white border border-[#EEEEEE] rounded-2xl">
               <div className="w-full md:w-1/2 relative h-[300px] md:h-[380px]">
                 <Image
                   src="/companion5.jpg"
@@ -214,7 +214,7 @@ const Revolution = memo(() => {
             </div>
 
             {/* Feature 6 - Social Support & Engagement (Image Right) */}
-            <div className="flex flex-col md:flex-row-reverse items-center gap-8 p-4 md:px-10 md:py-4 bg-white border border-[#EEEEEE] rounded-2xl">
+            <div className="flex flex-col md:flex-row-reverse items-center gap-8 p-4 md:py-4 bg-white border border-[#EEEEEE] rounded-2xl">
               <div className="w-full md:w-1/2 relative h-[300px] md:h-[380px]">
                 <Image
                   src="/companion6.jpg"
@@ -235,7 +235,7 @@ const Revolution = memo(() => {
             </div>
 
             {/* Feature 7 - Effortlessly Intuitive Interface (Image Left) */}
-            <div className="flex flex-col md:flex-row items-center gap-8 p-4 md:px-10 md:py-4 bg-white border border-[#EEEEEE] rounded-2xl">
+            <div className="flex flex-col md:flex-row items-center gap-8 p-4 md:py-4 bg-white border border-[#EEEEEE] rounded-2xl">
               <div className="w-full md:w-1/2 relative h-[300px] md:h-[380px]">
                 <Image
                   src="/companion7.jpg"

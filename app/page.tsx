@@ -5,8 +5,6 @@ import { useScrollEffects } from "@/hooks/use-scroll-effects"
 import Navigation from "@/components/homepage/navigation"
 import Hero from "@/components/homepage/hero"
 import Revolution from "@/components/homepage/revolution"
-import About from "@/components/homepage/about"
-import Features from "@/components/homepage/features"
 import Community from "@/components/homepage/community"
 import Testimonials from "@/components/homepage/testimonials"
 import Pricing from "@/components/homepage/pricing"
@@ -37,8 +35,6 @@ const FitrackerApp = memo(() => {
         appScreenshotOpacity={appScreenshotOpacity}
       />
       <Revolution />
-      <About />
-      <Features />
       <Community />
       <Testimonials />
       <Pricing />

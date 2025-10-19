@@ -45,48 +45,48 @@ const Revolution = memo(() => {
                 </div>
 
                 {/* Right Column - Feature Cards (2 columns x 2 rows) */}
-                <div className="flex flex-row items-center gap-6 w-full lg:w-auto">
+                <div className="flex flex-col sm:flex-row items-center gap-6 w-full lg:w-auto">
                   {/* First Column */}
-                  <div className="flex flex-col items-start gap-6 flex-1 lg:w-[268px]">
+                  <div className="flex flex-col items-start gap-6 w-full sm:flex-1 lg:w-[268px]">
                     {/* Card 1 - 3 */}
-                    <div className="flex flex-col justify-center items-center p-8 gap-4 bg-white rounded-[10px] w-full h-[156px]">
-                      <div className="text-[#050505] font-medium text-[32px] leading-9 max-w-[500px] w-full text-center">
+                    <div className="flex flex-col justify-center items-center p-6 sm:p-8 gap-3 sm:gap-4 bg-white rounded-[10px] w-full min-h-[140px] sm:h-[156px]">
+                      <div className="text-[#050505] font-medium text-[28px] sm:text-[32px] leading-8 sm:leading-9 w-full text-center">
                         3
                       </div>
-                      <p className="text-[#878787] font-medium text-base leading-5 max-w-[700px] w-full text-center">
+                      <p className="text-[#878787] font-medium text-sm sm:text-base leading-5 w-full text-center">
                         ways to track: photo, voice, or manual input
                       </p>
                     </div>
 
                     {/* Card 2 - AI Powered */}
-                    <div className="flex flex-col justify-center items-center p-8 gap-4 bg-white rounded-[10px] w-full h-[156px]">
-                      <div className="text-[#050505] font-medium text-[32px] leading-9 max-w-[500px] w-full text-center">
+                    <div className="flex flex-col justify-center items-center p-6 sm:p-8 gap-3 sm:gap-4 bg-white rounded-[10px] w-full min-h-[140px] sm:h-[156px]">
+                      <div className="text-[#050505] font-medium text-[28px] sm:text-[32px] leading-8 sm:leading-9 w-full text-center">
                         AI - Powered
                       </div>
-                      <p className="text-[#878787] font-medium text-base leading-5 max-w-[700px] w-full text-center">
+                      <p className="text-[#878787] font-medium text-sm sm:text-base leading-5 w-full text-center">
                         daily fitness and nutrition recommendations
                       </p>
                     </div>
                   </div>
 
                   {/* Second Column */}
-                  <div className="flex flex-col items-start gap-6 flex-1 lg:w-[268px]">
+                  <div className="flex flex-col items-start gap-6 w-full sm:flex-1 lg:w-[268px]">
                     {/* Card 3 - 24/7 */}
-                    <div className="flex flex-col justify-center items-center p-8 gap-4 bg-white rounded-[10px] w-full h-[156px]">
-                      <div className="text-[#050505] font-medium text-[32px] leading-9 max-w-[500px] w-full text-center">
+                    <div className="flex flex-col justify-center items-center p-6 sm:p-8 gap-3 sm:gap-4 bg-white rounded-[10px] w-full min-h-[140px] sm:h-[156px]">
+                      <div className="text-[#050505] font-medium text-[28px] sm:text-[32px] leading-8 sm:leading-9 w-full text-center">
                         24/7
                       </div>
-                      <p className="text-[#878787] font-medium text-base leading-5 max-w-[700px] w-full text-center">
+                      <p className="text-[#878787] font-medium text-sm sm:text-base leading-5 w-full text-center">
                         personalized AI health coaching
                       </p>
                     </div>
 
                     {/* Card 4 - Complete */}
-                    <div className="flex flex-col justify-center items-center p-8 gap-4 bg-white rounded-[10px] w-full h-[156px]">
-                      <div className="text-[#050505] font-medium text-[32px] leading-9 max-w-[500px] w-full text-center">
+                    <div className="flex flex-col justify-center items-center p-6 sm:p-8 gap-3 sm:gap-4 bg-white rounded-[10px] w-full min-h-[140px] sm:h-[156px]">
+                      <div className="text-[#050505] font-medium text-[28px] sm:text-[32px] leading-8 sm:leading-9 w-full text-center">
                         Complete
                       </div>
-                      <p className="text-[#878787] font-medium text-base leading-5 max-w-[700px] w-full text-center">
+                      <p className="text-[#878787] font-medium text-sm sm:text-base leading-5 w-full text-center">
                         health companion loved by beginners and pros
                       </p>
                     </div>

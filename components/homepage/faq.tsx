@@ -52,7 +52,7 @@ const FAQ = memo(() => {
   return (
     <section className="py-20 bg-background" id="faqs">
       <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-heading font-bold mb-12">FAQs</h2>
+        <h2 className="text-4xl font-heading font-medium mb-12 text-center">Frequently Asked Questions</h2>
         <div className="space-y-4">
           {faqItems.map((item, index) => {
             const open = expandedFaq === index

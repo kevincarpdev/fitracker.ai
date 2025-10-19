@@ -10,8 +10,6 @@ import Testimonials from "@/components/homepage/testimonials"
 import Pricing from "@/components/homepage/pricing"
 import CTA from "@/components/homepage/cta"
 import FAQ from "@/components/homepage/faq"
-import Contact from "@/components/homepage/contact"
-import Newsletter from "@/components/homepage/newsletter"
 import Footer from "@/components/homepage/footer"
 
 const FitrackerApp = memo(() => {
@@ -40,8 +38,6 @@ const FitrackerApp = memo(() => {
       <Pricing />
       <CTA />
       <FAQ />
-      <Contact />
-      <Newsletter />
       <Footer />
     </div>
   )

@@ -34,7 +34,7 @@ const Footer = memo(() => {
   return (
     <footer className="relative bg-gradient-to-b from-white via-[#1F005C]/15 to-white overflow-hidden">
       {/* Newsletter Section */}
-      <div className="relative max-w-[1200px] mx-auto px-6 pt-24 pb-12 z-10">
+      <div className="relative max-w-[1200px] mx-auto px-6 pt-10 sm:pt-24 pb-12 z-10">
         <div className="bg-white rounded-[10px] py-[90px] px-8 flex flex-col items-center gap-10 shadow-sm">
           <div className="text-center max-w-4xl">
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 text-[#1F005C]">
@@ -69,7 +69,7 @@ const Footer = memo(() => {
       </div>
 
       {/* Footer Links Section */}
-      <div className="relative max-w-7xl mx-auto px-6 py-20 z-10">
+      <div className="relative max-w-7xl mx-auto px-6 z-10">
           {/* Logo and Tagline Row */}
           <div className="mb-8">
             <div className="mb-2">
@@ -153,7 +153,7 @@ const Footer = memo(() => {
           </div>
           
         {/* Footer bottom */}
-        <div className="pt-8 border-t border-[#1F005C]/10">
+        <div className="py-8 border-t border-[#1F005C]/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-[#1F005C]/60 font-body">
               © 2025 Fitracker. All rights reserved

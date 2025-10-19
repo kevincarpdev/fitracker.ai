@@ -69,7 +69,7 @@ const Footer = memo(() => {
       </div>
 
       {/* Footer Links Section */}
-      <div className="relative max-w-7xl mx-auto px-6 z-10">
+      <div className="relative max-w-7xl mx-auto px-6 z-10 lg:pt-12">
           {/* Logo and Tagline Row */}
           <div className="mb-8">
             <div className="mb-2">
@@ -151,7 +151,6 @@ const Footer = memo(() => {
               </div>
             </div>
           </div>
-          
         {/* Footer bottom */}
         <div className="py-8 border-t border-[#1F005C]/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
